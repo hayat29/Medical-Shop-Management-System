@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell List</title>
+</head>
+<body>
+    <h1>Sell List</h1>
+    <ul>
+        {% if sales %}
+            {% for sale in sales %}
+                <li>Sold {{ sale.medicine.name }} for ${{ sale.price }} on {{ sale.date }}</li>
+            {% endfor %}
+        {% else %}
+            <li>No sales recorded.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

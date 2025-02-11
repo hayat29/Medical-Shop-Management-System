@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory List</title>
+    <style>
+        /* Add some basic styling to improve readability */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #a96666;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inventory Overview</h1>
+    <ul>
+        {% if inventory_items %}
+            {% for item in inventory_items %}
+                <li>
+                    {{ item.medicine.name|escape }}: 
+                    {{ item.stock.quantity|default(0) }} in stock, 
+                    Sold: {{ item.sold.quantity|default(0) }}
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No inventory items available.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

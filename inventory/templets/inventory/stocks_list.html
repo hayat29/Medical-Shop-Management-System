@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock List</title>
+</head>
+<body>
+    <h1>Stock List</h1>
+    <ul>
+        {% if stocks %}
+            {% for stock in stocks %}
+                <li>{{ stock.medicine.name }}: {{ stock.quantity }} in stock</li>
+            {% endfor %}
+        {% else %}
+            <li>No stock available.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

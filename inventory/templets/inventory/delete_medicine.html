@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Medicine</title>
+</head>
+<body>
+    <h1>Delete Medicine</h1>
+    <p>Are you sure you want to delete "{{ medicine.name }}"?</p>
+    <form method="post" action="{% url 'delete_medicine' medicine.id %}">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'medicines_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
